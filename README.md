@@ -44,3 +44,28 @@ To ensure the 128GB card is fully utilized:
 sudo raspi-config
 # Navigate to: Advanced Options -> Expand Filesystem
 df -h / # Verify capacity
+
+## Using Kali Tools (Terminal-First Workflow)
+
+Because this build uses **Raspberry Pi OS** as the base and layers Kali tools on top, not every Kali tool will appear in the desktop menus. Many Kali tools are **CLI-only by design** (they launch in a terminal, not as GUI apps).
+
+### Verify tools are installed
+Use `which` to confirm a command exists:
+```bash
+which nmap
+which msfconsole
+which aircrack-ng
+
+nmap --version
+msfconsole --version
+aircrack-ng --help
+
+nmap scanme.nmap.org
+msfconsole
+
+dpkg -l | grep kali
+
+apt search metasploit
+apt search aircrack
+
+lxterminal -e msfconsole
